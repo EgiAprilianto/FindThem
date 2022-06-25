@@ -1,0 +1,67 @@
+@layout('layouts.app') 
+@set('title', 'Dashboard') 
+@section('content')
+<div class="mt-5">
+  <div class="card w-full bg-base-300 shadow-xl align-middle">
+    <div class="card-body">
+      <h2 class="card-title">Daftar korban kamu nih!</h2>
+      @if(flashMessages.has('error'))
+      <div class="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Error! {{flashMessages.get('error')}}.</span>
+        </div>
+        <div class="flex-none">
+          <button
+            class="btn btn-sm btn-primary-focus"
+            onclick="$('.alert').hide()"
+          >
+            OKE
+          </button>
+        </div>
+      </div>
+      @end
+      <div class="overflow-x-auto">
+        <table class="table table-compact w-full">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Longtitude</th>
+              <th>Latitude</th>
+              <th>Tanggal</th>
+              <th>Maps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            @each(result in results)
+            <tr>
+              <th></th>
+              <td>{{ result.longtitude }}</td>       
+              <td>{{ result.latitude }}</td>       
+              <td>{{ result.created_at }}</td>
+              <td>
+                <iframe src = "https://maps.google.com/maps?q={{ result.longtitude }},{{ result.latitude }}&hl=es;z=14&amp;output=embed"></iframe>
+              </td>
+            </tr>
+            @endeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+@end

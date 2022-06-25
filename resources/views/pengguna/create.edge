@@ -1,0 +1,42 @@
+@layout('layouts.app') 
+@set('title', 'Dashboard') 
+@section('content')
+<div class="mt-5">
+  <div
+    class="card w-full bg-base-200 shadow-xl align-middle"
+  >
+    <div class="card-body">
+      <h2 class="card-title">Tambah Pengguna!</h2>
+      <div class="overflow-x-auto ">
+        <form action="" method="post">
+            {{ csrfField() }}
+                <label for="">Kode</label>
+                <input type="text" class="input w-full" name="kode" id="" required>
+                <label for="">Nama</label>
+                <input type="text" class="input w-full" name="nama" id="" required>
+                <label for="">Expired</label>
+                <label class="input-group">
+                    <input type="number" class="input w-full" name="expired"/>
+                    <span>Hari</span>
+                </label>
+                <!-- <div class="form-control mt-2">
+                    <label class="label cursor-pointer">
+                      <span>Admin</span> 
+                      <input type="checkbox" name="is_admin" class="checkbox" />
+                    </label>
+                  </div> -->
+                  <div class="form-control mt-2">
+                    <label class="label cursor-pointer">
+                      <span>VIP</span> 
+                      <input type="checkbox" name="is_vip" class="checkbox" />
+                    </label>
+                  </div>
+                <button class="btn btn-primary w-96 mt-5" type="submit">Buat</button>
+                <a href="/" class="btn btn-error-focus w-96 mt-5">Kembali</a>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@end

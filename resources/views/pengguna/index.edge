@@ -1,0 +1,79 @@
+@layout('layouts.app') 
+@set('title', 'Dashboard') 
+@section('content')
+<div class="mt-5">
+  <div class="card w-full bg-base-300 shadow-xl align-middle">
+    <div class="card-body">
+      <h2 class="card-title">Daftar Pengguna!</h2>
+      <div class="card-actions">
+        <a class="btn btn-primary" href="/pengguna/buat">Tambah Pengguna</a>
+      </div>
+      @if(flashMessages.has('error'))
+      <div class="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Error! {{flashMessages.get('error')}}.</span>
+        </div>
+        <div class="flex-none">
+          <button
+            class="btn btn-sm btn-primary-focus"
+            onclick="$('.alert').hide()"
+          >
+            OKE
+          </button>
+        </div>
+      </div>
+      @end
+      <div class="overflow-x-auto">
+        <table class="table table-compact w-full">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Kode</th>
+              <th>Nama</th>
+              <th>Expired</th>
+              <th>Role</th>
+              <th>VIP</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            @each(user in users)
+            <tr>
+              <th></th>
+              <td>{{ user.kode }}</td>       
+              <td>{{ user.nama }}</td>       
+              <td>{{ user.expired }} Hari</td>   
+              <td>{{ user.is_admin ? 'Admin' : 'User' }}</td>
+              <td>{{ user.is_vip ? 'YES' : 'NO' }}</td>
+              <td>
+                <a class="btn btn-warning" href="/pengguna/edit/{{ user.id }}"
+                  >Edit</a
+                >
+                <a class="btn btn-danger" href="/pengguna/delete/{{ user.id }}"
+                  >Hapus</a
+                >
+              </td>
+            </tr>
+            @endeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+@end

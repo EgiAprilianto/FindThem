@@ -1,0 +1,25 @@
+@layout('layouts.app') 
+@set('title', 'Dashboard') 
+@section('content')
+<div class="mt-5">
+  <div
+    class="card w-full bg-base-200 shadow-xl align-middle"
+  >
+    <div class="card-body">
+      <h2 class="card-title">Cie mau edit link nya.</h2>
+      <div class="overflow-x-auto ">
+        <form action="" method="post">
+            {{ csrfField() }}
+                <label for="">Judul</label>
+                <input type="text" class="input w-full" name="judul" id="" value="{{ link.judul }}" required>
+                <label for="">Link</label>
+                <input type="url" class="input w-full" name="url" id="" value="{{ link.url }}" required>
+                <button class="btn btn-primary w-96 mt-5" type="submit">Update</button>
+                <a href="/" class="btn btn-error-focus w-96 mt-5">Kembali</a>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@end
